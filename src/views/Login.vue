@@ -13,16 +13,16 @@
       >Continue to Academic Portal</p>
       <form class="uk-text-center uk-margin">
         <div class="uk-margin">
-          <div class="uk-inline">
+          <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: user"></span>
-            <input class="uk-input uk-text-large" type="text" placeholder="UNITAR Id..." autocapitalize="off">
+            <input class="uk-input" type="text" placeholder="UNITAR Id..." autocapitalize="off">
           </div>
         </div>
 
         <div class="uk-margin">
-          <div class="uk-inline">
+          <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
-            <input class="uk-input uk-text-large" type="password" placeholder="Your password...">
+            <input class="uk-input" type="password" placeholder="Your password...">
           </div>
         </div>
         <button class="uk-button uk-width-1-1 uk-button-primary">Sign In</button>

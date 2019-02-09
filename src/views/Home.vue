@@ -1,105 +1,104 @@
 <template>
-<div class="uk-container">
-
-  <div style="padding-top: 50px;"></div>
-
-<article class="uk-article">
-
-    <h1 class="uk-article-title"><a class="uk-link-reset" href="">Hello!</a></h1>
-
-    <p class="uk-article-meta">Written by <a href="#">Aravind Voggu</a> on 29 September 2018.</p>
-
-    <p class="uk-text-lead">This is a demo of using UiKit with VueJS, built using Vue CLI 3.0</p>
-    
-    <p>The tutorial is available on my website - https://aravindvoggu.in. All the content below is just for example and I've not added any functionality.</p>
-
-    <href src="https://aravindvoggu.in/uikit-with-vuejs-vue-cli-3-db811e43c46b">Link to the tutorial.</href>
-    <div class="uk-grid-small uk-child-width-auto" uk-grid>
-        <div>
-            <a class="uk-button uk-button-text" href="#">Read more</a>
+  <div class="uc-home">
+    <MainNav></MainNav>
+    <div class="uk-container uk-container-expand uk-child-width-1-1 uk-margin">
+      <!-- News feed -->
+      <div
+        class="uk-card uk-card-default uk-box-shadow-large uk-margin uk-padding uk-border-rounded"
+      >
+        <h4 class="uk-card-title uk-text-center">News Feed</h4>
+        <div
+          class="uk-card uk-card-body uk-padding-remove uk-margin"
+          v-for="(item, index) in feedItems"
+          :key="item.id"
+        >
+          <div uk-grid class="uk-grid-small">
+            <div style="width:20px;">
+              <font-awesome-icon :icon="item.icon" style="color:#b44;"></font-awesome-icon>
+            </div>
+            <div class="uk-width-expand">{{ item.text }} #{{index + 1}}</div>
+            <div style="width: 20px;">
+              <font-awesome-icon icon="chevron-circle-right" size="lg" v-if="item.url"></font-awesome-icon>
+            </div>
+          </div>
+          <hr>
         </div>
-        <div>
-            <a class="uk-button uk-button-text" href="#">5 Comments</a>
+      </div>
+
+      <!-- UPcoming classes -->
+      <div
+        class="uk-card uk-card-default uk-box-shadow-large uk-margin uk-padding uk-border-rounded"
+      >
+        <h4 class="uk-card-title uk-text-center">Upcoming Classes</h4>
+        <div
+          class="uk-card uk-card-body uk-padding-remove uk-margin"
+          v-for="(item, index) in classes"
+          :key="item.id"
+        >
+          <p
+            class="uk-text-uppercase uk-text-large"
+          >{{index + 1}} . {{ item.course }} ({{item.section}})</p>
+          <p>
+            <font-awesome-icon :icon="['far', 'clock']"></font-awesome-icon>&nbsp;
+            {{item.date}} {{item.time }}
+          </p>
+          <p>
+            <font-awesome-icon icon="map-marker-alt"></font-awesome-icon>&nbsp;
+            {{ item.location}}
+          </p>
+          <hr>
         </div>
+      </div>
     </div>
-
-</article>
-
-<div style="padding-top: 25px; padding-bottom: 25px;"></div>
-
-<table class="uk-table uk-table-divider">
-    <thead>
-        <tr>
-            <th>Table Heading</th>
-            <th>Table Heading</th>
-            <th>Table Heading</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Table Data</td>
-            <td>Table Data</td>
-            <td>Table Data</td>
-        </tr>
-        <tr>
-            <td>Table Data</td>
-            <td>Table Data</td>
-            <td>Table Data</td>
-        </tr>
-        <tr>
-            <td>Table Data</td>
-            <td>Table Data</td>
-            <td>Table Data</td>
-        </tr>
-    </tbody>
-</table>
-
-<hr class="uk-divider-icon" style="padding-top: 25px; padding-bottom: 25px;">
-
-<div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
-    <div>
-        <div class="uk-card uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">Hover</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">Hover</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">Hover</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">Hover</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-    </div>
-</div>
-
-<div style="padding-top: 50px;"></div>
-
-
-</div>
-
+  </div>
 </template>
 
 <script>
+import MainNav from "../components/MainNav";
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
+  components: {
+    MainNav
   },
+  data: function() {
+    return {
+      feedItems: [
+        {
+          id: 1,
+          icon: "book",
+          text: "Feed item",
+          url: "#"
+        },
+        {
+          id: 2,
+          icon: "ambulance",
+          text:
+            "Very looooo oooooooooo oooooooooo oooong text. Some more loooooooooooooooooooong text. Feed item",
+          url: null
+        },
+        {
+          id: 3,
+          icon: "comment-alt",
+          text: "Feed item",
+          url: "#"
+        },
+        {
+          icon: "book",
+          text: "Feed item",
+          url: "#"
+        }
+      ],
+      classes: [
+        {
+          id: 1,
+          course: "Bagb1234 Principles of Hello World",
+          section: "MC-S4",
+          location: "No 5, Persiaran 1, Jalan Unitar, Main Campus",
+          date: "29 Feb 2019",
+          time: "330pm - 530pm"
+        }
+      ]
+    };
+  }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
-
-</style>
