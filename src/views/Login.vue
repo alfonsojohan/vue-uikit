@@ -25,17 +25,23 @@
             <input class="uk-input" type="password" placeholder="Your password...">
           </div>
         </div>
-        <button class="uk-button uk-width-1-1 uk-button-primary">Sign In</button>
-        <p style="font-size:75%;">Signing in means acceptance of the terms of use as set out by UNITAR IT Policy</p>
+        <button class="uk-button uk-width-1-1 uk-button-primary" v-on:click="signIn()">Sign In</button>
+        <p
+          style="font-size:75%;"
+        >Signing in means acceptance of the terms of use as set out by UNITAR IT Policy</p>
       </form>
     </div>
-    <span style="font-size:80%; color: #666;" class="uk-position-bottom-center uk-padding-small">&copy; 2019 UNITAR</span>
+    <span
+      style="font-size:80%; color: #666;"
+      class="uk-position-bottom-center uk-padding-small"
+    >&copy; 2019 UNITAR</span>
   </div>
 </template>
 
 <style type="text/css" scoped>
 .uc-login {
-  background: url("../assets/images/login-bg2.jpg") no-repeat center center fixed;
+  background: url("../assets/images/login-bg2.jpg") no-repeat center center
+    fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -43,3 +49,13 @@
 }
 </style>
 
+<script>
+export default {
+  methods: {
+    signIn() {
+      console.log("Redirect to home page");
+      this.$router.push("/");
+    }
+  }
+};
+</script>
